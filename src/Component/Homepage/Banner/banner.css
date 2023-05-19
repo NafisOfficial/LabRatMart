@@ -1,0 +1,20 @@
+.banner{
+    background-image: url('../../../assets/cover/Background.jpg');
+    width: 100%;
+    height: 830px;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 640px) {
+    .sz-img{
+        max-width: 650px;
+        height: 550px;
+    }
+  }
