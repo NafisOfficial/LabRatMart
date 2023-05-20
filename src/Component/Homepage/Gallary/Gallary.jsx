@@ -1,15 +1,16 @@
 import React from 'react';
 import './gallary.css'
+import { Link } from 'react-router-dom';
 
 const Gallary = () => {
     return (
         <div className='m-6 sm:m-20 flex flex-col justify-center'>
-            <h1 className='text-center mb-6 text-4xl text-[#B4CC5F]'>Our photo gallary</h1>
+            <h1 className='text-center mb-12 text-4xl text-[#B4CC5F]'>Our photo gallary</h1>
             <div className='flex justify-between text-[#aac549]'>
                 <h1>Latest Photos</h1>
                 <div className='flex items-center'><h3>Page</h3><input className='w-10 px-1 border-2 border-[#aac549]' type="number" placeholder='1' /><h3>of 5</h3></div>
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-4  ms-22 gap-4 my-6'>
+            <div className='grid grid-cols-1 sm:grid-cols-4  ms-22 gap-6 my-6'>
                 <div>
                     <div><img src="https://kdvr.com/wp-content/uploads/sites/11/2022/08/1040x585-2021-0614-best-educational-toys-for-toddlers-d9c9fe.jpg?strip=1" className='customImage' alt="" /></div>
                     <div className='flex justify-between text-[#B4CC5F]'>
@@ -123,12 +124,12 @@ const Gallary = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-between'>
-                <button className='bg-[#B9CF6A] px-4 py-2 text-white'>Previous</button>
+            <div className='flex justify-between mt-12'>
+                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-4 py-2 text-white'>Previous</button>
                 <div className='flex gap-1'>
-                    <button className='bg-[#B9CF6A] px-3'>1</button><button className='bg-[#EEEEEE] px-3'>2</button><button className='bg-[#EEEEEE] px-3'>3</button><button className='bg-[#EEEEEE] px-3'>4</button><button className='bg-[#EEEEEE] px-3'>5</button>
+                    <Link><button className='bg-[#B9CF6A] px-3'>1</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>2</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>3</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>4</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>5</button></Link>
                 </div>
-                <button className='bg-[#B9CF6A] px-4 py-2 text-white'>Next</button>
+                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-4 py-2 text-white'>Next</button>
             </div>
         </div>
     );

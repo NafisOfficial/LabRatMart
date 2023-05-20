@@ -1,8 +1,16 @@
-import React from 'react';
-import { Form } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Form, Navigate, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { authContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
+
+    const {signInByEmailAndPass, singInByGoogle } = useContext(authContext);
+
+    const navigate = useNavigate();
+
+    const from = location?.state?.from?.pathname || '/'
 
 
     const handleLoginButton = (event) => {
@@ -10,7 +18,29 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        console.log(email,password);
+        signInByEmailAndPass(email, password)
+            .then(() => {
+                navigate(from,{replace:true})
+            })
+            .catch((error) => {
+                console.error(error.message);
+            })
+
+
+    }
+
+    const handleGoogleButton = (event) => {
+        event.preventDefault();
+
+        const provider = new GoogleAuthProvider()
+
+        singInByGoogle(provider)
+        .then(()=>{
+            navigate(from,{replace:true});
+        })
+        .catch((error)=>{
+            console.error(error.message);
+        })
 
     }
 
@@ -45,7 +75,7 @@ const Login = () => {
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                             </Form>
-                            <div><button className="btn w-full btn-outline text-[#4406CB] hover:bg-slate-100 hover:text-[#4406CB] hover:border-[#4406CB]"><FcGoogle className='text-3xl mr-3 '></FcGoogle> Continue with google</button></div>
+                            <div><button onClick={handleGoogleButton} className="btn w-full btn-outline text-[#4406CB] hover:bg-slate-100 hover:text-[#4406CB] hover:border-[#4406CB]"><FcGoogle className='text-3xl mr-3 '></FcGoogle> Continue with google</button></div>
                             <label className="label">
                                 <p>You don't have an account ?<a href="/register" className="label-text-alt link link-hover text-base ms-2 text-[#4406CB] ">Register</a></p>
                             </label>
