@@ -1,16 +1,44 @@
-import React from 'react';
-import { Form } from 'react-router-dom';
+import { updateProfile } from 'firebase/auth';
+import React, { useContext } from 'react';
+
+import { authContext } from '../AuthProvider/AuthProvider';
+import { Form, useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
+
+
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location?.state?.from?.pathname || '/login'
+
+    const { createUserByEmailPassword } = useContext(authContext);
+
     const handleRegisterForm = (event) => {
+
         event.preventDefault();
         const name = event.target.name.value;
         const url = event.target.image.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        console.log(name,url,email,password)
+        console.log(name, url, email, password)
 
+
+        createUserByEmailPassword(email, password)
+            .then((result) => {
+                updateProfile(result.user, { displayName: name, photoURL: url })
+                    .then(() => {
+                        navigate(from, { replace: true })
+                    })
+                    .catch(() => {
+
+                    })
+
+            })
+            .catch((error) => {
+                console.error(error.message);
+            })
 
     }
 
@@ -36,7 +64,7 @@ const Register = () => {
                                     </label>
                                     <input type='text' name='image' placeholder="Provite your image link" className="input input-bordered" required />
                                 </div>
-                                
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>

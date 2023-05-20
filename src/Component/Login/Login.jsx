@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Form, Navigate, useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { authContext } from '../AuthProvider/AuthProvider';
@@ -51,7 +51,7 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Please Login !</h1>
+                        <h1 className="text-5xl font-bold text-[#788d2b]">Please Login !</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
@@ -72,12 +72,12 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn bg-[#9cb445] hover:bg-[#788d2b]">Login</button>
                                 </div>
                             </Form>
-                            <div><button onClick={handleGoogleButton} className="btn w-full btn-outline text-[#4406CB] hover:bg-slate-100 hover:text-[#4406CB] hover:border-[#4406CB]"><FcGoogle className='text-3xl mr-3 '></FcGoogle> Continue with google</button></div>
+                            <div><button onClick={handleGoogleButton} className="btn w-full btn-outline text-[#788d2b] hover:bg-slate-100 hover:text-[#788d2b] hover:border-[#788d2b]"><FcGoogle className='text-3xl mr-3 '></FcGoogle> Continue with google</button></div>
                             <label className="label">
-                                <p>You don't have an account ?<a href="/register" className="label-text-alt link link-hover text-base ms-2 text-[#4406CB] ">Register</a></p>
+                                <p>You don't have an account ?<a href="/register" className="label-text-alt link link-hover text-base ms-2 text-[#788d2b] ">Register</a></p>
                             </label>
                         </div>
                     </div>
