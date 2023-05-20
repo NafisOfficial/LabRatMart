@@ -14,6 +14,8 @@ import Addtoy from './Component/Addtoys/Addtoy';
 import Navbar from './Component/shared/Navbar/Navbar';
 import Blog from './Component/Blog/Blog';
 import Authprovider from './Component/AuthProvider/AuthProvider';
+import Privateroute from './Component/Privateroute/Privateroute';
+import Mytoys from './Component/Mytoys/Mytoys';
 
 
 
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:"/blogs",
         element:<Blog></Blog>
+      },
+      {
+        path:"/my-toys",
+        element:<Privateroute><Mytoys></Mytoys></Privateroute>
       }
     ]
   },
