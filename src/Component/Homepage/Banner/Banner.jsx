@@ -1,8 +1,13 @@
 import React from 'react';
-import './banner.css'
+import './banner.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import item1 from '../../../assets/cover/cover-1-removebg-preview (1).png'
 import item2 from '../../../assets/logo/rocket-png-40810 (1).png'
 import { CgArrowLongRight } from 'react-icons/cg';
+
+
+AOS.init();
 
 const Banner = () => {
     return (
@@ -26,7 +31,7 @@ const Banner = () => {
                             </div>
                         </div>
 
-                        <img src={item2} alt="" className='ms-52 sm:ms-72 mt-3 sm:mt-10 h-20' />
+                        <img src={item2} data-aos="fade-up-right" alt="" className='ms-52 sm:ms-72 mt-3 sm:mt-10 h-20' />
 
                     </div>
                 </div>
