@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/logo/logo-1.png'
 import { Link, Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import { authContext } from '../../AuthProvider/AuthProvider';
+import profile from '../../../assets/logo/profile.webp'
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+
 
 const Navbar = () => {
+
+    const MySwal = withReactContent(Swal)
+
+    const {user,logOut} = useContext(authContext);
+
+    
+
+    const handleLogOut =() =>{
+        logOut()
+        .then(()=>{
+            MySwal.fire(
+                {
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Logout successful',
+                    showConfirmButton: false,
+                    timer: 1300
+                  }
+            )
+        })
+        .catch((error)=>console.error(error.message))
+    }
+
     return (
         <div className='sticky top-0'>
             <div className="navbar bg-[#b9cf6a]">
@@ -16,8 +44,8 @@ const Navbar = () => {
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/all-toys">All Toys</Link></li>
                             <li><Link to="/blogs">Blogs</Link></li>
-                            <li><Link to="/my-toys">My toys</Link></li>
-                            <li><Link to='/add-a-toy'>Add toys</Link></li>
+                            {user?<><li><Link to="/my-toys">My toys</Link></li>
+                            <li><Link to='/add-a-toy'>Add toys</Link></li></>:<></>}
                         </ul>
                     </div>
                 </div>
@@ -28,11 +56,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
                     <div className="avatar">
-                        <div className="w-6 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <img src={user?`${user.photoURL}`:profile} title={user.displayName} />
                         </div>
                     </div>
-                    <Link to='/login'><button className="btn btn-sm ms-2">login</button></Link>
+                    {user?<button onClick={handleLogOut} className="btn btn-sm ms-2">logout</button>:<Link to='/login'><button className="btn btn-sm ms-2">login</button></Link>}
                 </div>
             </div>
             <Outlet></Outlet>

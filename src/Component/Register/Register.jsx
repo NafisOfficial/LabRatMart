@@ -1,7 +1,7 @@
 import { updateProfile } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Form, useLocation, useNavigate } from 'react-router-dom';
 
