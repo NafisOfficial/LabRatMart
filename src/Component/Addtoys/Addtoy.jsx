@@ -47,7 +47,7 @@ const Addtoy = () => {
                     </label>
                 </div>
                 <div className='mx-96'>
-                    <button type="submit" className='px-8 py-4 bg-[#B9CF6A] rounded text-center ms-16 mt-6'>Submit</button>
+                    <button type="submit" className='px-8 py-4 bg-[#a4bd49] rounded text-center ms-16 mt-6 text-white'>Submit</button>
                 </div>
             </form>
 

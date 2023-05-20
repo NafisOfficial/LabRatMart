@@ -12,6 +12,7 @@ import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
 import Addtoy from './Component/Addtoys/Addtoy';
 import Navbar from './Component/shared/Navbar/Navbar';
+import Blog from './Component/Blog/Blog';
 
 
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path:"/add-a-toy",
         element:<Addtoy></Addtoy>
+      },
+      {
+        path:"/blogs",
+        element:<Blog></Blog>
       }
     ]
   },
