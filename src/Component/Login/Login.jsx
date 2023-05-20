@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -12,6 +12,7 @@ const Login = () => {
 
     const from = location?.state?.from?.pathname || '/'
 
+    const [error,setError] = useState('');
 
     const handleLoginButton = (event) => {
         event.preventDefault();
@@ -23,6 +24,7 @@ const Login = () => {
                 navigate(from,{replace:true})
             })
             .catch((error) => {
+                setError(error.message);
                 console.error(error.message);
             })
 
@@ -39,6 +41,7 @@ const Login = () => {
             navigate(from,{replace:true});
         })
         .catch((error)=>{
+            setError(error.message);
             console.error(error.message);
         })
 
@@ -55,6 +58,7 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                        {error?<h1 className='text-red-600'>{error}</h1>:<></>}
                             <Form onSubmit={handleLoginButton}>
                                 <div className="form-control">
                                     <label className="label">

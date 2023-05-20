@@ -1,15 +1,18 @@
 import { updateProfile } from 'firebase/auth';
-import React, { useContext } from 'react';
-
+import React, { useContext, useState } from 'react';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Form, useLocation, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-
+    const MySwal = withReactContent(Swal)
 
     const navigate = useNavigate()
     const location = useLocation()
+
+    const [error,setError] = useState("");
 
     const from = location?.state?.from?.pathname || '/login'
 
@@ -29,6 +32,16 @@ const Register = () => {
             .then((result) => {
                 updateProfile(result.user, { displayName: name, photoURL: url })
                     .then(() => {
+                        MySwal.fire(
+                            {
+                                position: 'top-center',
+                                icon: 'success',
+                                title: 'User have been created successfully',
+                                showConfirmButton: false,
+                                timer: 1300
+                              }
+                        )
+                        event.target.reset();
                         navigate(from, { replace: true })
                     })
                     .catch(() => {
@@ -37,6 +50,7 @@ const Register = () => {
 
             })
             .catch((error) => {
+                setError(error.message);
                 console.error(error.message);
             })
 
@@ -51,6 +65,7 @@ const Register = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                        {error?<h1 className='text-red-600'>{error}</h1>:<></>}
                             <Form onSubmit={handleRegisterForm}>
                                 <div className="form-control">
                                     <label className="label">
