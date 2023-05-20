@@ -10,15 +10,21 @@ import Home from './Component/Homepage/Home/Home';
 import Error from './Component/ErrorPage/Error';
 import Login from './Component/Login/Login';
 import Register from './Component/Register/Register';
+import Addtoy from './Component/Addtoys/Addtoy';
+import Navbar from './Component/shared/Navbar/Navbar';
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <Navbar></Navbar>,
     errorElement:<Error></Error>,
     children:[
+      {
+        path:"/",
+        element:<Home></Home>
+      },
       {
         path:"/login",
         element:<Login></Login>
@@ -26,6 +32,10 @@ const router = createBrowserRouter([
       {
         path:"/register",
         element: <Register></Register>
+      },
+      {
+        path:"/add-a-toy",
+        element:<Addtoy></Addtoy>
       }
     ]
   },

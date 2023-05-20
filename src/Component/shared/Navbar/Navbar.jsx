@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from '../../../assets/logo/logo-1.png'
+import { Link, Outlet } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 const Navbar = () => {
     return (
@@ -15,7 +17,7 @@ const Navbar = () => {
                             <li><a>All Toys</a></li>
                             <li><a>Blogs</a></li>
                             <li><a>My toys</a></li>
-                            <li><a>Add toys</a></li>
+                            <li><Link to='/add-a-toy'>Add toys</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -33,6 +35,8 @@ const Navbar = () => {
                     <button className="btn btn-sm ms-2">login</button>
                 </div>
             </div>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

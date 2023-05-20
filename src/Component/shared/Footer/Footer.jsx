@@ -14,8 +14,9 @@ const Footer = () => {
                 
                 <div>
                     <span className="footer-title">Address</span>
-                    <a className="link link-hover">Road:1212</a>
-                    <a className="link link-hover">Thana:Phulbari, District:Kurigram</a>
+                    <a className="link link-hover">Road:Bwt-1212</a>
+                    <a className="link link-hover">Thana:Phulbari</a>
+                    <a className="link link-hover">District:Kurigram</a>
                     <a className="link link-hover">Division:Rangpur</a>
                     <a className="link link-hover">Country:Bangladesh</a>
                 </div>
