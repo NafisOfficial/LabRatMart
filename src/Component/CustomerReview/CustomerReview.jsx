@@ -2,7 +2,9 @@ import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-AOS.init();
+AOS.init({
+    disable: 'mobile'
+  });
 
 const CustomerReview = () => {
 
@@ -11,10 +13,10 @@ const CustomerReview = () => {
 
     return (
         <div>
-            <h1 className='text-center bolded text-[#B9CF6A] text-6xl mt-12'>Customer review</h1>
+            <h1 className='text-center bolded text-[#B9CF6A] text-3xl md:text-6xl mt-12'>Customer review</h1>
             <div className='sm:mx-20 sm:my-32 flex flex-col gap-12 my-16'>
                 <div data-aos="fade-right" data-aos-anchor-placement="top-center">
-                    <div className="card w-80 sm:w-96 bg-[#B9CF6A] text-primary-content ms-4">
+                    <div className="card w-72 sm:w-96 bg-[#B9CF6A] text-primary-content mx-auto sm:ms-4">
                         <div className="card-body">
                             <div className="avatar">
                                 <div className="w-12 rounded-xl">
@@ -27,7 +29,7 @@ const CustomerReview = () => {
                     </div>
                 </div>
                 <div data-aos="fade-left" data-aos-anchor-placement="top-center">
-                    <div className="card w-80 sm:w-96 bg-[#B9CF6A] text-primary-content ms-auto me-4">
+                    <div className="card w-72 sm:w-96 bg-[#B9CF6A] text-primary-content mx-auto sm:ms-auto sm:me-8">
                         <div className="card-body">
                             <div className="avatar">
                                 <div className="w-12 rounded-xl">
@@ -40,7 +42,7 @@ const CustomerReview = () => {
                     </div>
                 </div>
                 <div data-aos="fade-right" data-aos-anchor-placement="top-center">
-                    <div className="card w-80 sm:w-96 bg-[#B9CF6A] text-primary-content ms-4">
+                    <div className="card w-72 sm:w-96 bg-[#B9CF6A] text-primary-content mx-auto sm:ms-4">
                         <div className="card-body">
                             <div className="avatar">
                                 <div className="w-12 rounded-xl">
