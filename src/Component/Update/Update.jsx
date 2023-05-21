@@ -16,7 +16,7 @@ const Update = () => {
         const description = form.description.value;
         console.log(quantity, price, description);
         const updatedtoy = { quantity, price, description };
-        fetch(`http://localhost:5000/user-submit-toy-details/${_id}`, {
+        fetch(`https://toy-server-nafisofficial.vercel.app/user-submit-toy-details/${_id}`, {
             method: 'PATCH',
             headers: {
             'content-type': 'application/json'

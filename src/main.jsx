@@ -60,12 +60,12 @@ const router = createBrowserRouter([
       {
         path:"/view-details/:id", 
         element:<Privateroute><ViewDetails></ViewDetails></Privateroute>,
-        loader:({params})=>fetch(`http://localhost:5000/user-submit-toy-details/${params.id}`)
+        loader:({params})=>fetch(`https://toy-server-nafisofficial.vercel.app/user-submit-toy-details/${params.id}`)
       },
       {
         path:"/update/:id", 
         element:<Privateroute><Update/></Privateroute>,
-        loader:({params})=>fetch(`http://localhost:5000/user-submit-toy-details/${params.id}`)
+        loader:({params})=>fetch(`https://toy-server-nafisofficial.vercel.app/user-submit-toy-details/${params.id}`)
       },
     ]
   },

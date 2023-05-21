@@ -27,7 +27,7 @@ useTitle('AddToy')
     
         const productDetails={productName,photoUrl,sellerName,sellerEmail,category,price,rating,quantity,description};
     
-        fetch('http://localhost:5000/user-submit-toy-details',{
+        fetch('https://toy-server-nafisofficial.vercel.app/user-submit-toy-details',{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json'

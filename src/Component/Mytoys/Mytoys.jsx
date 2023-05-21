@@ -13,7 +13,7 @@ const Mytoys = () => {
     const [Alldata, setAlldatas] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/user-submit-toy-details')
+        fetch('https://toy-server-nafisofficial.vercel.app/user-submit-toy-details')
             .then(res => res.json())
             .then(data => setAlldatas(data))
     }, [])
@@ -41,7 +41,7 @@ const Mytoys = () => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user-submit-toy-details/${_id}`, {
+                fetch(`https://toy-server-nafisofficial.vercel.app/user-submit-toy-details/${_id}`, {
                             method: 'DELETE'
                         })
                         .then(res=> res.json())

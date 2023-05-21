@@ -13,7 +13,7 @@ const Alltoys = () => {
     const [Alldata,setAlldatas] = useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/user-submit-toy-details')
+        fetch('https://toy-server-nafisofficial.vercel.app/user-submit-toy-details')
         .then(res=>res.json())
         .then(data=>setAlldatas(data))
     },[])
