@@ -125,11 +125,11 @@ const Gallary = () => {
                 </div>
             </div>
             <div className='flex justify-between mt-12'>
-                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-4 py-2 text-white'>Previous</button>
+                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-2 sm:px-4 py-2 text-white'>Prev</button>
                 <div className='flex gap-1'>
                     <Link><button className='bg-[#B9CF6A] px-3'>1</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>2</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>3</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>4</button></Link><Link> <button className='bg-[#EEEEEE] px-3'>5</button></Link>
                 </div>
-                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-4 py-2 text-white'>Next</button>
+                <button className='bg-[#B9CF6A] hover:bg-[#798b36] px-2 sm:px-4 py-2 text-white'>Next</button>
             </div>
         </div>
     );
