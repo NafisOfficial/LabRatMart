@@ -93,7 +93,7 @@ const Register = () => {
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Register</button>
+                                    <button className="btn bg-[#9cb445] hover:bg-[#788d2b]">Register</button>
                                 </div>
                             </Form>
                             <label className="label">
