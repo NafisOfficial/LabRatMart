@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import SubAlltoys from './SubAlltoys';
 import { FcSearch } from "react-icons/fc";
 import Swal from 'sweetalert2';
+import useTitle from '../Hooks/useTitle';
 
 const Alltoys = () => {
+    useTitle('AllToys')
 
     const [showAll, setShowAll] = useState(false);
 

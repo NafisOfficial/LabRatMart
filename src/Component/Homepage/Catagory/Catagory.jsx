@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Catagory = ({ data }) => {
 
     console.log(data);
 
-    const { photoUrl, productName, sellerName, sellerEmail, price, rating, quantity } = data;
+    const { photoUrl,_id, productName, sellerName, sellerEmail, price, rating, quantity } = data;
 
     return (
         <div>
@@ -14,8 +15,7 @@ const Catagory = ({ data }) => {
                 <div className='mt-4'>
                     <div>
                         <p><span className='font-semibold'>Toy Name:</span> {productName}</p>
-                        <p><span className='font-semibold'>Seller Name:</span> {sellerName}</p>
-                        <p><span className='font-semibold'>Email:</span> {sellerEmail}</p>
+                        
                     </div>
                     <div className='flex  justify-between mt-2'>
                         <p><span className='font-semibold'>Price:</span> {price} $</p>
@@ -23,7 +23,7 @@ const Catagory = ({ data }) => {
                     </div>
                     <div className='flex flex-col sm:flex-row justify-between items-center'>
                         <p><span className='font-semibold'>Quantity:</span> {quantity}</p>
-                        <button className='bg-[#B9CF6A] hover:bg-[#a9c250] px-4 py-2 my-4'>View Details</button>
+                        <Link to={`/view-details/${_id}`}><button className='bg-[#B9CF6A] hover:bg-[#a9c250] px-4 py-2 my-4'>View Details</button></Link>
                     </div>
                 </div>
             </div>

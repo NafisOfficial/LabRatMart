@@ -3,9 +3,10 @@ import { Form, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { authContext } from '../AuthProvider/AuthProvider';
+import useTitle from '../Hooks/useTitle';
 
 const Login = () => {
-
+useTitle('Login')
     const {signInByEmailAndPass, singInByGoogle } = useContext(authContext);
 
     const navigate = useNavigate();

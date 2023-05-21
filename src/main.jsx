@@ -17,6 +17,8 @@ import Authprovider from './Component/AuthProvider/AuthProvider';
 import Privateroute from './Component/Privateroute/Privateroute';
 import Mytoys from './Component/Mytoys/Mytoys';
 import Alltoys from './Component/Alltoys/Alltoys';
+import ViewDetails from './Component/ViewDetails/ViewDetails';
+import Update from './Component/Update/Update';
 
 
 
@@ -24,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Navbar></Navbar>,
-    errorElement:<Error></Error>,
+   
     children:[
       {
         path:"/",
@@ -48,14 +50,29 @@ const router = createBrowserRouter([
       },
       {
         path:"/my-toys",
-        element:<Privateroute><Mytoys></Mytoys></Privateroute>
+        element:<Privateroute><Mytoys></Mytoys></Privateroute>,
+
       },
       {
         path:"/all-toys",
         element:<Alltoys></Alltoys>,
-      }
+      },
+      {
+        path:"/view-details/:id", 
+        element:<Privateroute><ViewDetails></ViewDetails></Privateroute>,
+        loader:({params})=>fetch(`http://localhost:5000/user-submit-toy-details/${params.id}`)
+      },
+      {
+        path:"/update/:id", 
+        element:<Privateroute><Update/></Privateroute>,
+        loader:({params})=>fetch(`http://localhost:5000/user-submit-toy-details/${params.id}`)
+      },
     ]
   },
+  {      
+    path:'*',
+    element: <Error></Error>,
+  }
 ]);
 
 

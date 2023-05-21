@@ -1,37 +1,42 @@
 import React from 'react';
+import useTitle from '../Hooks/useTitle';
 
 
-const hanleAddatoys = (event) =>{
-    event.preventDefault();
-    const form = event.target;
-
-    const productName = form.productName.value;
-    const photoUrl = form.photoUrl.value;
-    const sellerName = form.sellerName.value;
-    const sellerEmail = form.sellerEmail.value;
-    const category = form.catagory.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const quantity = form.quantity.value;
-    const description = form.description.value;
-
-    const productDetails={productName,photoUrl,sellerName,sellerEmail,category,price,rating,quantity,description};
-
-    fetch('http://localhost:5000/user-submit-toy-details',{
-        method: "POST",
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(productDetails)
-    })
-
-}
 
 
 
 
 
 const Addtoy = () => {
+
+useTitle('AddToy')
+    const hanleAddatoys = (event) =>{
+    
+        event.preventDefault();
+        const form = event.target;
+    
+        const productName = form.productName.value;
+        const photoUrl = form.photoUrl.value;
+        const sellerName = form.sellerName.value;
+        const sellerEmail = form.sellerEmail.value;
+        const category = form.catagory.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
+    
+        const productDetails={productName,photoUrl,sellerName,sellerEmail,category,price,rating,quantity,description};
+    
+        fetch('http://localhost:5000/user-submit-toy-details',{
+            method: "POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(productDetails)
+        })
+    
+    }
+    
     return (
         <div className='flex flex-col justify-center items-center m-16'>
 

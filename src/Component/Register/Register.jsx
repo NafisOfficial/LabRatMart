@@ -4,9 +4,10 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { authContext } from '../AuthProvider/AuthProvider';
 import { Form, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../Hooks/useTitle';
 
 const Register = () => {
-
+useTitle("Register")
     const MySwal = withReactContent(Swal)
 
     const navigate = useNavigate()
