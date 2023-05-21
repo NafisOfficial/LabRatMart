@@ -2,7 +2,7 @@ import React from 'react';
 
 const SubAlltoys = ({data}) => {
 
-    console.log(data);
+    
     const {sellerName,productName,category,price,quantity} = data
 
     return (

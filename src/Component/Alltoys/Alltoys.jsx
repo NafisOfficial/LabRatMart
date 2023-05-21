@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import SubAlltoys from './SubAlltoys';
+import { FcSearch } from "react-icons/fc";
+import Swal from 'sweetalert2';
 
 const Alltoys = () => {
 
@@ -15,7 +17,7 @@ const Alltoys = () => {
     },[])
 
 
-    console.log(Alldata);
+
 
     
 
@@ -27,6 +29,24 @@ const Alltoys = () => {
 
     const handleShowless = () =>{
         setShowAll(false)
+    }
+
+    const handleSeacth = ()=>{
+        Swal.fire({
+            title: 'Name of product',
+            input: 'text',
+            inputAttributes: {
+              autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Search',
+            showLoaderOnConfirm: true,
+            preConfirm: (text) => {
+              const searchedData = Alldata.filter(dt=>dt.productName.toLowerCase().includes(text.toLowerCase()))
+              setAlldatas(searchedData);
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+          })
     }
 
 
@@ -42,7 +62,7 @@ const Alltoys = () => {
                             <th>Sub-category</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Action</th>
+                            <th className='flex items-center'>Action<button onClick={handleSeacth} className='ms-6 text-xl'><FcSearch></FcSearch></button></th>
                         </tr>
                     </thead>
                     <tbody>
